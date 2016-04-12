@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, user-scalable=1"/>
+    <title>{% if page.title %}{{ page.title }} • {% endif %}{{ site.title }}</title>
+    <meta name="language" content="en"/>
+    {% if page.excerpt %}<meta name="description" content="{{ page.excerpt | strip_html }}">{% endif %}
+    <meta name="keywords" content="front-end web developer, HTML5, CSS3, Portugal"/>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="cleartype" content="on">
+    {% if author.google.plus %}<link rel="author" href="https://plus.google.com/{{ author.google.plus }}"/>{% endif %}
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic,300,300italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ site.url }}/css/main.css">
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+    <link href="{{ site.url }}/atom.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Atom Feed">
+    <link href="{{ site.url }}/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="{{ site.url }}/js/vendor/html5shiv.min.js"></script>
+      <script src="{{ site.url }}/js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body id="js-body caixa" class="m-scene">
+
+    <section id="wrapper" class="scene_element scene_element--fadein">
+      <div class="white">
+        {% include browser-upgrade.html %}
+        {% include header.html %}
+
+        {% comment %}
+          {% include navigation-sliding.html %}
+        {% endcomment %}
+
+        <div id="page-wrapper">
+         {{ content }}
+        </div>
+      </div>
+    </section>
+
+    <!-- <div > -->
+    {% include footer.html %}
+    <!-- </div> -->
+
+    <script src="{{ site.url }}/js/vendor/jquery-1.9.1.min.js"></script>
+     <script src="{{ site.url }}/js/plugins/jquery.smoothState.js"></script>
+
+    <script src="{{ site.url }}/js/main.js"></script>
+    <script src="{{ site.url }}/js/core.js"></script>
+
+      <script src="{{ site.url }}/js/functions.js"></script>
+
+  </body>
+
+</html>

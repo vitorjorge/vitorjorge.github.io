@@ -1,0 +1,23 @@
+<footer role="contentinfo">
+	<section  id="site-footer">
+		<div class="left">
+			<p class="first">Este é o sítio na Internet onde o front-end <a href="/about/" class="bold">Vitor Jorge</a> partilha os <a href="/work/">trabalhos</a> que faz.</p>
+			<p class="copyright">&#169; {{ site.time | date: '%Y' }} Copyright <a href="{{ site.url }}">{{ site.title }}</a>. All rights reserved.</p>
+		</div>
+
+		{% comment %}
+			<nav role="navigation" class="right">
+				<ul class="menu-item">
+				{% for link in site.data.footer %}
+		      {% if link.url contains 'http' %}
+		        {% assign domain = '' %}
+		        {% else %}
+		        {% assign domain = site.url %}
+		      {% endif %}
+					<li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+				{% endfor %}
+				</ul>
+			</nav><!-- /.bottom-menu -->
+		{% endcomment %}
+	</section>
+</footer>

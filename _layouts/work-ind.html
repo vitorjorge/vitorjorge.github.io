@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<div id="main" role="main">	
+	<article class="wrap work-ind" itemscope itemtype="http://schema.org/Article">
+		<div class="page-title">
+			<h1>{{ page.title }}</h1>
+			{% if page.excerpt %}<h2>{{ page.excerpt }}</h2>{% endif %}
+		</div>
+		<div class="left">
+			{% if page.image.feature %}
+				<div class="page-feature">
+					<div class="page-image">
+						<img class="monitor" src="/images/monitor.png" alt="monitor Frame" width="800" height="675">
+						
+						<ul>
+						  <li>
+						    <img src="{{ site.url }}/images/{{ page.image.feature }}" class="page-feature-image" alt="{{ page.title }}" itemprop="image">
+						  </li>
+						</ul>
+
+						{% comment %}
+						{% if page.image.credit %}{% include image-credit.html %}{% endif %}
+						{% endcomment %}
+
+					</div><!-- /.page-image -->
+				</div><!-- /.page-feature -->
+			{% endif %}
+		</div>
+		<div class="right">
+	<!-- 		<div class="page-title">
+				<h2>{{ page.title }}</h2>
+			</div> -->
+			<div class="inner-wrap">
+				<div id="description" class="page-description" itemprop="articleBody">
+					<a class="website" href="{{ page.website }}">Visitar site</a>
+					{{ content }}
+				</div><!-- /.content -->
+			</div><!-- /.inner-wrap -->
+		</div>
+	</article><!-- /.wrap -->
+
+	<ul id="arrows">
+		<li class="prev">
+			{% if page.next_in_category != nil %}
+				<a href="{{page.next_in_category.url}}">
+					<span class="icon">previous</span>
+					<span class="name">Projeto anterior</span>
+				</a>
+			{% endif %}
+		</li>
+		<li class="next">
+			{% if page.previous_in_category != nil %}
+				<a href="{{page.previous_in_category.url}}">
+					<span class="icon">next</span>
+					<span class="name">Próximo projeto</span>
+				</a>
+			{% endif %}
+		</li>
+	</ul>
+</div>
